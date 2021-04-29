@@ -15,5 +15,9 @@ public class OrderService implements JavaDelegate {
         String selectedDrink = (String) delegateExecution.getVariable(ProcessVariables.selectedDrink);
 
         log.info("Hello, I'd like to order {} and {}", selectedFood, selectedDrink);
+        if( selectedFood.equalsIgnoreCase("pizza")) {
+            String selectedPizzaTopping = (String) delegateExecution.getVariable(ProcessVariables.selectedPizzaTopping);
+            log.info("The pizza with {}", selectedPizzaTopping);
+        }
     }
 }
