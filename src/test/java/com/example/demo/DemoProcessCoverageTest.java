@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule;
 import org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRuleBuilder;
@@ -9,6 +10,9 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.assertThat;
+
 
 public class DemoProcessCoverageTest {
 
@@ -22,7 +26,12 @@ public class DemoProcessCoverageTest {
     public void testMonday() {
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put(ProcessVariables.weekday, "monday");
-        classRule.getRuntimeService().startProcessInstanceByKey("DemoProcess", variables);
+        ProcessInstance processInstance = classRule.getRuntimeService().startProcessInstanceByKey("DemoProcess", variables);
+
+        assertThat(processInstance).isEnded()
+                .hasPassed("Activity_14omuvf" // Select Food Activity
+//                        ,"IdThatDoesntExist" // uncommenting will make test fail
+                ).hasVariables(ProcessVariables.weekday, ProcessVariables.selectedFood);
     }
 
     @Test
