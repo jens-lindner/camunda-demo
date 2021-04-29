@@ -2,8 +2,10 @@ package com.example.demo;
 
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
+import org.camunda.bpm.engine.test.mock.Mocks;
 import org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule;
 import org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRuleBuilder;
+import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -16,10 +18,19 @@ import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.assertT
 
 public class DemoProcessCoverageTest {
 
-
     @ClassRule
     @Rule
     public static TestCoverageProcessEngineRule classRule = TestCoverageProcessEngineRuleBuilder.create().build();
+
+    // workaround to make Spring Beans available. Should be solved using a @SpringBootTest
+    @Before
+    public void initSpringBeans() {
+        Mocks.register("selectFoodService", new SelectFoodService());
+        Mocks.register("selectPizzaToppingService", new SelectPizzaToppingService());
+        Mocks.register("selectDrinkService", new SelectDrinkService());
+        Mocks.register("validationService", new ValidationService());
+        Mocks.register("orderService", new OrderService());
+    }
 
     @Test
     @Deployment(resources = "demo_process.bpmn")
