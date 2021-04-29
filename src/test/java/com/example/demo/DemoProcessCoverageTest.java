@@ -52,4 +52,15 @@ public class DemoProcessCoverageTest {
         variables.put(ProcessVariables.weekday, "saturday");
         classRule.getRuntimeService().startProcessInstanceByKey("DemoProcess", variables);
     }
+
+    @Test
+    @Deployment(resources = "demo_process.bpmn")
+    public void testUnreachablePath() {
+        ProcessInstance processInstance = classRule.getRuntimeService().createProcessInstanceByKey("DemoProcess")
+                .startBeforeActivity("unreachable_task")
+                .execute();
+
+        assertThat(processInstance).hasPassed("unreachable_task");
+    }
+
 }

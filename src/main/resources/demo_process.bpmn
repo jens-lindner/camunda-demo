@@ -35,15 +35,15 @@
     <bpmn:sequenceFlow id="Flow_0oifga7" name="food and drink selected" sourceRef="Gateway_0mkt7hd" targetRef="Activity_0dnztkg">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${foodAndOrderSelected}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:task id="Activity_1h542dq" name="empty task">
+    <bpmn:task id="unreachable_task" name="unreachable task">
       <bpmn:incoming>Flow_0airi84</bpmn:incoming>
       <bpmn:outgoing>Flow_1xqv2ai</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_0airi84" sourceRef="Gateway_0mkt7hd" targetRef="Activity_1h542dq" />
+    <bpmn:sequenceFlow id="Flow_0airi84" sourceRef="Gateway_0mkt7hd" targetRef="unreachable_task" />
     <bpmn:endEvent id="Event_1bx7v46">
       <bpmn:incoming>Flow_1xqv2ai</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_1xqv2ai" sourceRef="Activity_1h542dq" targetRef="Event_1bx7v46" />
+    <bpmn:sequenceFlow id="Flow_1xqv2ai" sourceRef="unreachable_task" targetRef="Event_1bx7v46" />
     <bpmn:exclusiveGateway id="Gateway_04nl32o" default="Flow_10uoz3t">
       <bpmn:incoming>Flow_07i5ud0</bpmn:incoming>
       <bpmn:outgoing>Flow_05u6lo6</bpmn:outgoing>
@@ -146,7 +146,7 @@
       <bpmndi:BPMNShape id="Gateway_0mkt7hd_di" bpmnElement="Gateway_0mkt7hd" isMarkerVisible="true">
         <dc:Bounds x="965" y="162" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1h542dq_di" bpmnElement="Activity_1h542dq">
+      <bpmndi:BPMNShape id="Activity_1h542dq_di" bpmnElement="unreachable_task">
         <dc:Bounds x="1080" y="270" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1bx7v46_di" bpmnElement="Event_1bx7v46">
