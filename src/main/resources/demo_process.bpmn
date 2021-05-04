@@ -61,7 +61,7 @@
     <bpmn:sequenceFlow id="Flow_0j1tm6k" sourceRef="Activity_0bpy04c" targetRef="Gateway_179bsbj" />
     <bpmn:sequenceFlow id="Flow_1d8y1gb" sourceRef="Gateway_179bsbj" targetRef="Activity_0121gjz" />
     <bpmn:sequenceFlow id="Flow_10uoz3t" sourceRef="Gateway_04nl32o" targetRef="Gateway_179bsbj" />
-    <bpmn:serviceTask id="Activity_0bpy04c" name="Select PIzza Topping" camunda:delegateExpression="${selectPizzaToppingService}">
+    <bpmn:serviceTask id="Activity_0bpy04c" name="Select Pizza Topping" camunda:type="external" camunda:topic="PizzaTopping">
       <bpmn:incoming>Flow_05u6lo6</bpmn:incoming>
       <bpmn:outgoing>Flow_0j1tm6k</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -84,18 +84,6 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="DemoProcess">
-      <bpmndi:BPMNShape id="TextAnnotation_1pu5agb_di" bpmnElement="TextAnnotation_1pu5agb">
-        <dc:Bounds x="160" y="160" width="100" height="40" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1y7of36_di" bpmnElement="TextAnnotation_1y7of36">
-        <dc:Bounds x="390" y="80" width="137" height="51" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1skw531_di" bpmnElement="TextAnnotation_1skw531">
-        <dc:Bounds x="640" y="158" width="106" height="44" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0ola7s9_di" bpmnElement="TextAnnotation_0ola7s9">
-        <dc:Bounds x="800" y="153" width="100" height="54" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_10uoz3t_di" bpmnElement="Flow_10uoz3t">
         <di:waypoint x="405" y="267" />
         <di:waypoint x="575" y="267" />
@@ -188,6 +176,18 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1t1sahh_di" bpmnElement="Activity_0bpy04c">
         <dc:Bounds x="440" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1pu5agb_di" bpmnElement="TextAnnotation_1pu5agb">
+        <dc:Bounds x="160" y="160" width="100" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1y7of36_di" bpmnElement="TextAnnotation_1y7of36">
+        <dc:Bounds x="390" y="80" width="137" height="51" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1skw531_di" bpmnElement="TextAnnotation_1skw531">
+        <dc:Bounds x="640" y="158" width="106" height="44" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0ola7s9_di" bpmnElement="TextAnnotation_0ola7s9">
+        <dc:Bounds x="800" y="153" width="100" height="54" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0xnqlh7_di" bpmnElement="Association_0xnqlh7">
         <di:waypoint x="233" y="227" />

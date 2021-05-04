@@ -49,6 +49,12 @@
 			<artifactId>jaxb-impl</artifactId>
 			<version>2.2.3</version>
 		</dependency>
+		<!-- for engine-rest -->
+		<dependency>
+			<groupId>org.camunda.bpm.springboot</groupId>
+			<artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
+			<version>${camunda.spring-boot.version}</version>
+		</dependency>
 
 		<!-- Utility -->
 		<dependency>
