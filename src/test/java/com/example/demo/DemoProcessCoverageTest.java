@@ -5,10 +5,7 @@ import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.mock.Mocks;
 import org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRule;
 import org.camunda.bpm.extension.process_test_coverage.junit.rules.TestCoverageProcessEngineRuleBuilder;
-import org.junit.Before;
-import org.junit.ClassRule;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +31,7 @@ public class DemoProcessCoverageTest {
 
     @Test
     @Deployment(resources = "demo_process.bpmn")
+    @Ignore // disabled due to external task
     public void testMonday() {
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put(ProcessVariables.weekday, "monday");

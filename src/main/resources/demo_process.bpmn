@@ -9,7 +9,7 @@
       <bpmn:incoming>Flow_0e6fc35</bpmn:incoming>
       <bpmn:outgoing>Flow_07i5ud0</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Activity_0121gjz" name="Select Drink" camunda:delegateExpression="${selectDrinkService}">
+    <bpmn:serviceTask id="Activity_0121gjz" name="Select Drink" camunda:type="external" camunda:topic="Drink">
       <bpmn:incoming>Flow_1d8y1gb</bpmn:incoming>
       <bpmn:outgoing>Flow_02p1vkz</bpmn:outgoing>
     </bpmn:serviceTask>
