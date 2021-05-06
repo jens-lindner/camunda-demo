@@ -14,7 +14,7 @@ public class WorkloadScheduler {
     @Autowired
     private RuntimeService runtimeService;
 
-    @Scheduled(fixedRate = 30_000)
+//    @Scheduled(fixedRate = 30_000)
     public void run() {
         // create some more on first run
         if (counter == 0) {

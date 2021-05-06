@@ -6,3 +6,11 @@ camunda.bpm:
     firstName: Demo
   filter:
     create: All tasks
+
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled: true
